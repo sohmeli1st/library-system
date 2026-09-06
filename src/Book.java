@@ -2,7 +2,7 @@
         private String title;
         private String author;
         private String isbn;
-    
+
         public Book(String title){
             this(title, "belirtilmedi", "belirtilmedi");
         }
