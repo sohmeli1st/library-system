@@ -54,6 +54,7 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Objects.equals(isbn, book.isbn);
@@ -62,5 +63,9 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hashCode(isbn);
+    }
+    
+    public void getBookName(){
+        System.out.println("Kitap adı : " + this.title + "\n");
     }
 }
