@@ -21,4 +21,12 @@ public class EBook extends Book{
     public String getFormat(){
         return this.format;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "EBook{" +
+                "fileSize=" + fileSize +
+                ", format='" + format + '\'' +
+                '}';
+    }
 }

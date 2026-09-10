@@ -11,9 +11,12 @@ public class Main {
         System.out.println("Kitap1 == kitap 2 mi? = " + kitap1.equals(kitap2));
         System.out.println("Kitap1 == kitap 2 mi? = " + kitap2.equals(kitap2));
 
-        EBook E1 = new EBook("aaa","bbbb","12314",12,"pb");
-        PrintedBook E2 = new PrintedBook("bbbb","bbbb","12314",12);
+        EBook E1 = new EBook("Kırmızı Araba","Ali A.","486479",12,"pb");
+        PrintedBook E2 = new PrintedBook("100 Yıl","Ricardo Q","987621",12);
         E1.getBookName();
+
+        System.out.println(E1);
+        System.out.println(E2);
 
 
     }
