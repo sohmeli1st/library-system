@@ -1,4 +1,4 @@
-public class EBook extends Book{
+public class EBook extends Book {
     private int fileSize;
     private String format;
     public EBook(String title, String author, String isbn, int fileSize, String format){

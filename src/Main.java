@@ -1,26 +1,21 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Book kitap1 = new Book("Dune", "Frank Herbert", "12345");
-        Book kitap2 = new Book("Dune - Özel Basım", "Frank Herbert", "12345");
-        Book kitap3 = new Book("Yüzüklerin Efendisi", "J.R.R. Tolkien", "98765");
-        System.out.println(kitap1);
-        System.out.println(kitap2);
-        System.out.println(kitap3 + "\n");
-
-        System.out.println("--------------------\n");
-        System.out.println("Kitap1 == kitap 2 mi? = " + kitap1.equals(kitap2));
-        System.out.println("Kitap1 == kitap 2 mi? = " + kitap2.equals(kitap2));
-
-        EBook EBook1 = new EBook("Kırmızı Araba","Ali A.","486479",12,"pb");
-        PrintedBook PrintedBook1 = new PrintedBook("100 Yıl","Ricardo Q","987621",12);
-        Library Library = new Library();
-        Library.addBook(EBook1);
-        Library.addBook(EBook1);
-        Library.addBook(EBook1);
-
-        Library.showAllBooks();
+        Book kitap_A = new Book("Kitap-A", "Zehra", "864358");
+        Book kitap_A1 = new Book("Kitap-A1", "Hasim", "864358");
+        Book kitap_A2 = new Book("Kitap-A2", "Metin", "864358");
+        Book kitap_B = new Book("Kitap-B", "Buse", "785120");
+        try {
+            Library library = new Library();
+            library.addBook(kitap_A);
+            library.addBook(kitap_A1);
+            library.addBook(kitap_A2);
+            library.addBook(kitap_B);
+            System.out.println(library.getSortedAuthors());
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 }

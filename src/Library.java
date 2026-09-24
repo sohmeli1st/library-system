@@ -1,27 +1,43 @@
-import java.util.ArrayList;
+import java.util.*;
+
 
 public class Library {
+    List<Book> books = new ArrayList<Book>();
+    private Map<String, Book> bookMap = new HashMap<String, Book>();
 
-    private static int bookCount = 0;
-    // HATA DÜZELTİLDİ: Liste hafızada oluşturuldu
-    private ArrayList<Book> books = new ArrayList<>();
+    public void addBook(Book b) {
 
-    public void addBook(Book book){
-        books.add(book);
-        bookCount++;
+        books.add(b);
+        bookMap.put(b.getIsbn(), b);
     }
 
-    // HATA DÜZELTİLDİ: Parantezler eklendi
-    public void showAllBooks() {
-        System.out.println("\n--- Kütüphane Listesi ---");
-        for(int i = 0; i < books.size(); i++){
-            System.out.println("Kitap Bilgileri : " + books.get(i));
+    public void removeBooksByAuthor(String author) {
+        books.removeIf(b -> b.getAuthor().equals(author));
+    }
+
+    public List<Book> getAllBooks() {
+        return List.copyOf(books);
+    }
+
+    public Set<Book> getUniqueBooksCatalog(){
+        Set<Book> uniqueBooks = new HashSet<>(books);
+        // uniqueBooks.addAll(books);
+        return uniqueBooks;
+    }
+
+    public Book findBookByIsbn(String isbn){
+        return bookMap.get(isbn);
+    }
+
+    public Set<String> getSortedAuthors(){
+        Set<String> sortedAuthors = new TreeSet<>();
+        for(Book b : books){
+            sortedAuthors.add(b.getAuthor());
         }
-        // Döngünün dışında yazdırmak çıktıyı daha temiz yapar
-        System.out.println("Toplam Kitap Sayısı : " + getBookCount());
+        return sortedAuthors;
     }
 
-    public static int getBookCount(){
-        return bookCount;
+    public List<Book> getBookSortedByTitle() {
+        List.copyOf(books);
     }
 }
