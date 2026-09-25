@@ -37,7 +37,17 @@ public class Library {
         return sortedAuthors;
     }
 
+    @Override
+    public String toString() {
+        return "Library{" +
+                "bookMap=" + bookMap +
+                ", books=" + books +
+                '}';
+    }
+
     public List<Book> getBookSortedByTitle() {
-        List.copyOf(books);
+       List<Book> copyList = new  ArrayList<>(books);
+       copyList.sort(Comparator.comparing(Book::getTitle));
+       return copyList;
     }
 }

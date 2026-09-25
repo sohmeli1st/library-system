@@ -9,17 +9,18 @@ public class Book implements Borrowable, Comparable<Book> {
     private int publishYear;
 
     public Book(String title) {
-        this(title, "belirtilmedi", UUID.randomUUID().toString());
+        this(title, "belirtilmedi", UUID.randomUUID().toString(), 0);
     }
 
     public Book(String title, String author) {
-        this(title, author, UUID.randomUUID().toString());
+        this(title, author, UUID.randomUUID().toString(), 0);
     }
 
-    public Book(String title, String author, String isbn) {
+    public Book(String title, String author, String isbn, int publishYear) {
         setTitle(title);
         setAuthor(author);
         setIsbn(isbn);
+        setPublishYear(publishYear);
     }
 
     public void setTitle(String title) {
@@ -60,6 +61,7 @@ public class Book implements Borrowable, Comparable<Book> {
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", isbn='" + isbn + '\'' +
+                ", publishYear=" + publishYear +
                 '}';
     }
 
@@ -96,7 +98,6 @@ public class Book implements Borrowable, Comparable<Book> {
     }
 
     public int compareTo(Book other) {
-        Integer.compare(this.publishYear, other.publishYear);
-        return 0;
+        return Integer.compare(this.publishYear, other.publishYear);
 }
 }
